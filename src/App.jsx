@@ -4,16 +4,23 @@ import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import CartPage from "./pages/CartPage";
 import Navbar from "./assets/components/Navbar";
+import { CartProvider } from "./context/CartContext";
+import { SearchProvider } from "./context/SearchContext";
+
 const App = () => {
   return (
-    <BrowserRouter>
-    <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product" element={<ProductDetails />} />
-        <Route path="/cart" element={<CartPage />} />
-      </Routes>
-    </BrowserRouter>
+    <SearchProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+    </SearchProvider>
   );
 };
 
