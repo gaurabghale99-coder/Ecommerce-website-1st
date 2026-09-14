@@ -42,6 +42,7 @@ const App = () => {
         <BrowserRouter>
           <ScrollToHash />
           <Navbar />
+          <main className="app-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:id" element={<ProductDetails />} />
@@ -52,6 +53,7 @@ const App = () => {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-success" element={<OrderSuccess />} />
           </Routes>
+          </main>
         </BrowserRouter>
       </CartProvider>
     </SearchProvider>

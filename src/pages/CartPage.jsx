@@ -17,7 +17,7 @@ const CartPage = () => {
   const total = subtotal + shipping;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 mt-12">
       <h1 className="mt-4 text-2xl font-bold sm:text-3xl">Shopping Cart</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -46,7 +46,9 @@ const CartPage = () => {
                     className="h-40 w-full object-contain sm:h-44 sm:w-44"
                   />
                   <div className="min-w-0 flex-1">
-                    <h2 className="text-lg font-semibold sm:text-xl">{product.title}</h2>
+                    <h2 className="text-lg font-semibold sm:text-xl">
+                      {product.title}
+                    </h2>
                     <p className="text-gray-500">${product.price}</p>
                     <div className="mt-3 flex flex-wrap justify-between gap-3">
                       <div className="flex items-center gap-3">

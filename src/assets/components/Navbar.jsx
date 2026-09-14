@@ -14,10 +14,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <header className="relative bg-white shadow-lg">
-      <div className="py-2 shadow">
+    <header className="fixed top-0 left-0 right-0 z-10  bg-white shadow-lg">
+      <div className="relative border-b border-gray-100 bg-white py-2">
         <ul className="container mx-auto flex items-center justify-between gap-3 px-4 sm:px-6 lg:px-2">
-          <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm sm:gap-x-4 sm:text-base">
+          <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs sm:gap-x-4 sm:text-sm">
             <li>
               <Link to="/#home">Home</Link>
             </li>
@@ -33,7 +33,7 @@ const Navbar = () => {
           </div>
 
           <div
-            className={`bg-red-200 ${isOpen ? "flex flex-col absolute right-3 md:right-2 rounded-lg p-2 top-10 z-10 bg-zinc-300 gap-3 " : "hidden"}`}
+            className={`${isOpen ? "absolute right-4 top-full z-20 flex min-w-36 flex-col gap-3 rounded-lg bg-zinc-100 p-3 shadow-lg sm:right-6 lg:right-2" : "hidden"}`}
           >
             <li>
               <Link to="/signin" onClick={() => setIsOpen(false)}>
@@ -56,14 +56,14 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <nav className="container mx-auto flex flex-col justify-between items-center gap-4 px-4 py-4 sm:flex-row sm:px-6 md:py-3 lg:px-2">
+      <nav className="container mx-auto grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-2 px-4 py-2 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:px-6 md:py-3 lg:px-2">
         <div className="flex items-center">
           <Link to="/#home" className="rounded-2xl">
-            <img src={logo} alt="Logo" className="h-auto w-36 sm:w-40 md:w-48" />
+            <img src={logo} alt="Logo" className="h-12 w-auto sm:h-16 md:h-20" />
           </Link>
         </div>
 
-        <form className="relative w-full sm:w-auto sm:flex-1 sm:max-w-xl">
+        <form className="relative col-span-2 row-start-2 w-full sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:max-w-xl">
           <input
             type="text"
             placeholder="Search Product ....."
@@ -78,7 +78,7 @@ const Navbar = () => {
           />
         </form>
 
-        <Link to="/cart" className="relative self-end sm:self-auto">
+        <Link to="/cart" className="relative col-start-2 row-start-1 sm:col-start-3">
           <ShoppingCart size={44} className="bg-gray-200 rounded-full px-3 sm:h-12 sm:w-12" />
 
           {cart.length > 0 && (

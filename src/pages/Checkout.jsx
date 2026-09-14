@@ -63,7 +63,7 @@ const Checkout = () => {
                   className="flex items-center justify-between gap-4 py-4 border-b border-gray-200"
                 >
                   <div className="min-w-0">
-                    <h3 className="font-semibold text-gray-800">
+                    <h3 className="break-words font-semibold text-gray-800">
                       {product.title}
                     </h3>
 

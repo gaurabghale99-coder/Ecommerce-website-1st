@@ -34,7 +34,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:p-10">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:p-10 mt-12">
       <Link
         to="/"
         className="inline-block mb-8 bg-slate-200 rounded-xl p-2 text-gray-600 hover:text-black"
