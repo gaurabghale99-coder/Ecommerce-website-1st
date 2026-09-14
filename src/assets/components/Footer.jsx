@@ -10,6 +10,15 @@ const Footer = () => {
   const handleSubscribe = (e) => {
     e.preventDefault();
 
+    if (!email) {
+      setMessage("Please enter email");
+
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+      return;
+    }
+
     console.log("Newsletter subscription:", email);
 
     setMessage("Successfully subscribed to our newsletter!");
@@ -24,11 +33,19 @@ const Footer = () => {
     <footer className="bg-slate-900 shadow-lg">
       <div className="container mx-auto px-4 py-4">
         {/* Newsletter */}
-        <div id="faqs" className="flex flex-col items-start justify-between gap-6 py-8 scroll-mt-4 md:flex-row md:items-center md:py-10">
-          <h2 className="text-xl text-white sm:text-2xl">Subscribe to our newsletter</h2>
+        <div
+          id="faqs"
+          className="flex flex-col items-start justify-between gap-6 py-8 scroll-mt-4 md:flex-row md:items-center md:py-10"
+        >
+          <h2 className="text-xl text-white sm:text-2xl">
+            Subscribe to our newsletter
+          </h2>
 
           <div className="w-full md:w-auto">
-            <form onSubmit={handleSubscribe} className="flex flex-col gap-2 sm:flex-row sm:gap-0">
+            <form
+              onSubmit={handleSubscribe}
+              className="flex flex-col gap-2 sm:flex-row sm:gap-0"
+            >
               <input
                 type="email"
                 value={email}
@@ -56,10 +73,20 @@ const Footer = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
               <div>
-                <img src={logo} alt="Digital Office System" className="my-4 h-auto w-48 sm:w-56" />
+                <img
+                  src={logo}
+                  alt="Digital Office System"
+                  className="my-4 h-auto w-48 sm:w-56"
+                />
 
                 <div className="flex gap-6 items-center">
-                  <FaFacebookF size={40} />
+                  <a
+                    href="https://www.facebook.com/santoshjanakbhusal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaFacebookF size={40} />
+                  </a>
                   <FaTwitter size={40} />
                   <FaYoutube size={40} />
                   <FaInstagram size={40} />
