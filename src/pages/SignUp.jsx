@@ -24,8 +24,8 @@ const SignUp = () => {
     alert("Account created successfully!");
   };
   return (
-    <div className="bg-gray-200 min-h-screen flex justify-center items-center">
-      <div className="bg-white w-full max-w-md p-8 rounded-lg shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-gray-200 p-4">
+      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg sm:p-8">
         <h2 className="text-2xl font-semibold text-center">Create account</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
@@ -36,7 +36,7 @@ const SignUp = () => {
               placeholder="Enter your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="border ml-2 px-2 py-1 outline-none rounded-lg "
+              className="mt-1 w-full rounded-lg border px-2 py-2 outline-none"
             />
           </div>
           <div>
@@ -46,7 +46,7 @@ const SignUp = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border ml-2 px-2 py-1 outline-none rounded-lg "
+              className="mt-1 w-full rounded-lg border px-2 py-2 outline-none"
             />
           </div>
           <div>
@@ -56,7 +56,7 @@ const SignUp = () => {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="border ml-2 px-2 py-1 outline-none rounded-lg "
+              className="mt-1 w-full rounded-lg border px-2 py-2 outline-none"
             />
           </div>
           <div>
@@ -66,7 +66,7 @@ const SignUp = () => {
               placeholder="Enter your name"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="border ml-2 px-2 py-1 outline-none rounded-lg "
+              className="mt-1 w-full rounded-lg border px-2 py-2 outline-none"
             />
           </div>
 

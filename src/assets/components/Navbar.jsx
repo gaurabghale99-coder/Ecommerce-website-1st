@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Search, ShoppingCart, User } from "lucide-react";
-import logo from "../imgs/showcase/logo.png";
 import { SearchContext } from "../../context/SearchContext";
 import { CartContext } from "../../context/CartContext";
 
 const Navbar = () => {
+  const logo = "/imgs/showcase/logo.png";
   const [isOpen, setIsOpen] = useState(false);
   const { searchTerm, setSearchTerm } = useContext(SearchContext);
   const { cart } = useContext(CartContext);
@@ -14,10 +14,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <header className="bg-white shadow-lg">
+    <header className="relative bg-white shadow-lg">
       <div className="py-2 shadow">
-        <ul className=" container mx-auto flex flex-wrap justify-between  md:flex-row px-4 md:px-2 items-center">
-          <div className="flex gap-4">
+        <ul className="container mx-auto flex items-center justify-between gap-3 px-4 sm:px-6 lg:px-2">
+          <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm sm:gap-x-4 sm:text-base">
             <li>
               <Link to="/#home">Home</Link>
             </li>
@@ -56,14 +56,14 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <nav className="flex justify-between items-center container mx-auto py-5 md:py-3 px-2">
+      <nav className="container mx-auto flex flex-col justify-between items-center gap-4 px-4 py-4 sm:flex-row sm:px-6 md:py-3 lg:px-2">
         <div className="flex items-center">
           <Link to="/#home" className="rounded-2xl">
-            <img src={logo} alt="Logo" className="w-50 h-22" />
+            <img src={logo} alt="Logo" className="h-auto w-36 sm:w-40 md:w-48" />
           </Link>
         </div>
 
-        <form className="relative w-1/2">
+        <form className="relative w-full sm:w-auto sm:flex-1 sm:max-w-xl">
           <input
             type="text"
             placeholder="Search Product ....."
@@ -78,8 +78,8 @@ const Navbar = () => {
           />
         </form>
 
-        <Link to="/cart" className="relative">
-          <ShoppingCart size={50} className="bg-gray-200 rounded-full px-3" />
+        <Link to="/cart" className="relative self-end sm:self-auto">
+          <ShoppingCart size={44} className="bg-gray-200 rounded-full px-3 sm:h-12 sm:w-12" />
 
           {cart.length > 0 && (
             <span className="bg-blue-400 absolute rounded-full w-6 h-6 -top-4 -right-1 text-center text-white text-md items-center">

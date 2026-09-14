@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../imgs/showcase/logo.png";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
+  const logo = "/imgs/showcase/logo.png";
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
@@ -24,22 +24,22 @@ const Footer = () => {
     <footer className="bg-slate-900 shadow-lg">
       <div className="container mx-auto px-4 py-4">
         {/* Newsletter */}
-        <div id="faqs" className="flex flex-col md:flex-row justify-between items-center gap-6 py-10 scroll-mt-4">
-          <h2 className="text-2xl text-white">Subscribe to our newsletter</h2>
+        <div id="faqs" className="flex flex-col items-start justify-between gap-6 py-8 scroll-mt-4 md:flex-row md:items-center md:py-10">
+          <h2 className="text-xl text-white sm:text-2xl">Subscribe to our newsletter</h2>
 
-          <div>
-            <form onSubmit={handleSubscribe} className="flex">
+          <div className="w-full md:w-auto">
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-2 sm:flex-row sm:gap-0">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email..."
-                className="bg-white border border-gray-400 focus:outline-none px-4 py-2 rounded-l-md"
+                className="w-full rounded-md border border-gray-400 bg-white px-4 py-2 focus:outline-none sm:w-64 sm:rounded-r-none"
               />
 
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-5 py-2 rounded-r-md hover:bg-blue-700"
+                className="rounded-md bg-blue-600 px-5 py-2 text-white hover:bg-blue-700 sm:rounded-l-none"
               >
                 Subscribe
               </button>
@@ -56,7 +56,7 @@ const Footer = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
               <div>
-                <img src={logo} className="my-4 w-70 h-25" />
+                <img src={logo} alt="Digital Office System" className="my-4 h-auto w-48 sm:w-56" />
 
                 <div className="flex gap-6 items-center">
                   <FaFacebookF size={40} />
@@ -107,7 +107,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              <div id="contact" className="scroll-mt-4">
+              <div id="contact" className="break-words scroll-mt-4">
                 <h2 className="font-semibold text-2xl my-4">Contact us</h2>
 
                 <p>Saheedchowk, Narayangarh, Bharatpur, Nepal</p>

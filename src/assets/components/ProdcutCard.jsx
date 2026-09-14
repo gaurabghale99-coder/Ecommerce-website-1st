@@ -9,16 +9,16 @@ const ProductCard = ({ product }) => {
   return (
     <div className="shadow-xl rounded-md h-full flex flex-col overflow-hidden hover:scale-102 transition-all">
       <Link to={`/product/${product.id}`} className="flex flex-col flex-1">
-        <img src={product.image} className="w-full h-64 object-contain" />
+        <img src={product.image} alt={product.title} className="h-52 w-full object-contain sm:h-60 md:h-64" />
 
         <div className="bg-gray-100 p-4 flex flex-col flex-1">
-          <h2 className="font-semibold text-lg my-4 h-14">{product.title}</h2>
+          <h2 className="my-3 min-h-14 text-lg font-semibold">{product.title}</h2>
 
           <p className="text-sm border-gray-400 border-b-2 pb-4">
             {product.description.substring(0, 100)}...
           </p>
 
-          <div className="flex justify-between pt-4 items-center">
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-4">
             <p className="text-xl font-semibold">${product.price}</p>
 
             <Link to={`/product/${product.id}`}>

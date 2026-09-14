@@ -34,7 +34,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-10">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:p-10">
       <Link
         to="/"
         className="inline-block mb-8 bg-slate-200 rounded-xl p-2 text-gray-600 hover:text-black"
@@ -46,13 +46,13 @@ const ProductDetails = () => {
         <div>
           <img
             src={product.image}
-            className="w-full h-[500px] object-contain shadow-lg"
+            className="h-72 w-full object-contain shadow-lg sm:h-96 md:h-[500px]"
           />
         </div>
 
-        <div className="flex flex-col justify-center  ml-3">
+        <div className="flex min-w-0 flex-col justify-center md:ml-3">
           <p className="text-gray-500">{product.category}</p>
-          <h1 className="text-3xl font-bold mt-2">{product.title}</h1>
+          <h1 className="mt-2 text-2xl font-bold sm:text-3xl">{product.title}</h1>
           <p className="text-2xl font-semibold mt-4">${product.price}</p>
           <p className="text-gray-600 mt-5">{product.description}</p>
           <button

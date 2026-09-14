@@ -18,7 +18,7 @@ const CartPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mt-4">Shopping Cart</h1>
+      <h1 className="mt-4 text-2xl font-bold sm:text-3xl">Shopping Cart</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
@@ -39,16 +39,16 @@ const CartPage = () => {
               {cart.map((product) => (
                 <div
                   key={product.id}
-                  className="flex items-center gap-4 py-4 border-b border-gray-400 last:border-b-0"
+                  className="flex flex-col gap-4 border-b border-gray-400 py-4 last:border-b-0 sm:flex-row sm:items-center"
                 >
                   <img
                     src={product.image}
-                    className="w-44 h-44 object-contain"
+                    className="h-40 w-full object-contain sm:h-44 sm:w-44"
                   />
-                  <div className=" flex-1">
-                    <h2 className="text-xl font-semibold">{product.title}</h2>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="text-lg font-semibold sm:text-xl">{product.title}</h2>
                     <p className="text-gray-500">${product.price}</p>
-                    <div className="flex justify-between mt-3">
+                    <div className="mt-3 flex flex-wrap justify-between gap-3">
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => decreaseQuantity(product.id)}
