@@ -12,7 +12,7 @@ const CartPage = () => {
     0,
   );
 
-  const shipping = subtotal > 0 ? 100 : 0;
+  const shipping = subtotal > 0 ? 10 : 0;
 
   const total = subtotal + shipping;
 
@@ -23,14 +23,14 @@ const CartPage = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           {cart.length === 0 ? (
-            <div className="text-center">
+            <div className="text-center mt-10">
               <p>
                 <span className="font-semibold">Your cart is empty</span>
                 <br />
                 <span>Add some products to your cart to see them here</span>
               </p>
 
-              <button className="bg-zinc-300 rounded-lg px-4 py-2 hover:bg-zinc-500">
+              <button className="bg-zinc-300 rounded-lg px-4 py-2 hover:bg-zinc-500 mt-5">
                 <Link to="/">Continue shopping</Link>
               </button>
             </div>
@@ -100,7 +100,7 @@ const CartPage = () => {
               </div>
             </div>
             <button className="bg-gray-500 text-white hover:bg-zinc-600 cursor-pointer rounded-lg w-full py-2 mt-3">
-              Proceed to checkout
+              <Link to="/checkout">Proceed to checkout</Link>
             </button>
           </div>
         </div>

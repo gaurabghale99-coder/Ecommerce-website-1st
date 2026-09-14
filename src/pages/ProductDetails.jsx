@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../../productContent";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
@@ -7,6 +7,7 @@ import { CartContext } from "../context/CartContext";
 const ProductDetails = () => {
   const { id } = useParams();
   const { addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const product = products.find((product) => product.id === Number(id));
 
@@ -26,9 +27,18 @@ const ProductDetails = () => {
       </div>
     );
   }
+
+  const handleBuyNow = () => {
+    addToCart(product);
+    navigate("/checkout");
+  }
+
   return (
     <div className="max-w-6xl mx-auto p-10">
-      <Link to="/" className=" inline-block mb-8 bg-slate-200 rounded-xl p-2 text-gray-600 hover:text-black">
+      <Link
+        to="/"
+        className="inline-block mb-8 bg-slate-200 rounded-xl p-2 text-gray-600 hover:text-black"
+      >
         ← Back to Products
       </Link>
 
@@ -51,7 +61,7 @@ const ProductDetails = () => {
           >
             Add to cart
           </button>
-          <button className="border border-black py-3 px-6 mt-3 rounded cursor-pointer hover:scale-102 transition-all">
+          <button onClick={handleBuyNow} className="border border-black py-3 px-6 mt-3 rounded cursor-pointer hover:scale-102 transition-all">
             Buy now
           </button>
         </div>

@@ -19,16 +19,16 @@ const Navbar = () => {
         <ul className=" container mx-auto flex flex-wrap justify-between  md:flex-row px-4 md:px-2 items-center">
           <div className="flex gap-4">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/#home">Home</Link>
             </li>
             <li>
-              <Link to="/">About</Link>
+              <Link to="/#products">About</Link>
             </li>
             <li>
-              <Link to="/">FAQs</Link>
+              <Link to="/#faqs">FAQs</Link>
             </li>
             <li>
-              <Link to="/">Contact</Link>
+              <Link to="/#contact">Contact</Link>
             </li>
           </div>
 
@@ -36,11 +36,15 @@ const Navbar = () => {
             className={`bg-red-200 ${isOpen ? "flex flex-col absolute right-3 md:right-2 rounded-lg p-2 top-10 z-10 bg-zinc-300 gap-3 " : "hidden"}`}
           >
             <li>
-              <Link to="/">Sign</Link>
+              <Link to="/signin" onClick={() => setIsOpen(false)}>
+                Sign in
+              </Link>
             </li>
             <hr className="border-t border-gray-400" />
             <li>
-              <Link to="/">My Account</Link>
+              <Link to="/myaccount" onClick={() => setIsOpen(false)}>
+                My Account
+              </Link>
             </li>
           </div>
 
@@ -54,7 +58,7 @@ const Navbar = () => {
 
       <nav className="flex justify-between items-center container mx-auto py-5 md:py-3 px-2">
         <div className="flex items-center">
-          <Link to="/" className="rounded-2xl">
+          <Link to="/#home" className="rounded-2xl">
             <img src={logo} alt="Logo" className="w-50 h-22" />
           </Link>
         </div>
@@ -77,14 +81,11 @@ const Navbar = () => {
         <Link to="/cart" className="relative">
           <ShoppingCart size={50} className="bg-gray-200 rounded-full px-3" />
 
-            {
-              cart.length > 0 && (
-                <span className="bg-blue-400 absolute rounded-full w-6 h-6 -top-4 -right-1 text-center text-white text-md items-center">
-                  {cart.length}
-                </span>
-              )
-            }
-
+          {cart.length > 0 && (
+            <span className="bg-blue-400 absolute rounded-full w-6 h-6 -top-4 -right-1 text-center text-white text-md items-center">
+              {cart.length}
+            </span>
+          )}
         </Link>
       </nav>
     </header>
