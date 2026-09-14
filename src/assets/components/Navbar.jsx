@@ -9,6 +9,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { searchTerm, setSearchTerm } = useContext(SearchContext);
   const { cart } = useContext(CartContext);
+  const cartItemCount = cart.reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
 
   const handleUser = () => {
     setIsOpen(!isOpen);
@@ -81,9 +85,9 @@ const Navbar = () => {
         <Link to="/cart" className="relative col-start-2 row-start-1 sm:col-start-3">
           <ShoppingCart size={44} className="bg-gray-200 rounded-full px-3 sm:h-12 sm:w-12" />
 
-          {cart.length > 0 && (
+          {cartItemCount > 0 && (
             <span className="bg-blue-400 absolute rounded-full w-6 h-6 -top-4 -right-1 text-center text-white text-md items-center">
-              {cart.length}
+              {cartItemCount}
             </span>
           )}
         </Link>

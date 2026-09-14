@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useCallback, useState } from "react";
 
 export const CartContext = createContext();
 
@@ -43,6 +43,10 @@ export const CartProvider = ({ children }) => {
     setCart((currentCart) => currentCart.filter((item) => item.id !== id));
   };
 
+  const clearCart = useCallback(() => {
+    setCart([]);
+  }, []);
+
   return (
     <CartContext.Provider
       value={{
@@ -51,6 +55,7 @@ export const CartProvider = ({ children }) => {
         increaseQuantity,
         decreaseQuantity,
         removeFromCart,
+        clearCart,
       }}
     >
       {children}

@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const subtotal = cart.reduce(
@@ -18,8 +18,9 @@ const Checkout = () => {
   const handlePlaceOrder = (e) => {
     e.preventDefault();
 
-    console.log("Order placed;",cart);
+    console.log("Order placed;", cart);
 
+    clearCart();
     navigate("/order-success");
     
   };

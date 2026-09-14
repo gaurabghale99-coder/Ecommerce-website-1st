@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const OrderSuccess = () => {
+  const { clearCart } = useContext(CartContext);
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]);
+
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
       <div className="max-w-md w-full text-center bg-white shadow-lg rounded-2xl p-10">
