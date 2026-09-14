@@ -10,6 +10,17 @@ body {
 .bg {
   background: url("/imgs/showcase/bg-img.png");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 90vh
+}
+
+/* Keep the full wide banner visible on mobile instead of cropping its sides. */
+@media (max-width: 767px) {
+  .bg {
+    aspect-ratio: 768 / 368;
+    background-color: #1232a5;
+    background-size: contain;
+    height: auto;
+  }
 }
